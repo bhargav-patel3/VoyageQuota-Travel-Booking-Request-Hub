@@ -1,4 +1,4 @@
-# VoyageQuota | Travel Booking Request Hub
+# VoyageQuota | Travel Booking Request Hub  --   ON GOING
 
 VoyageQuota is a modern, premium multi-tier web application built using **React (Vite)**, **Node.js (Express)**, and **MySQL**. It is designed specifically as a realistic project for DevOps engineers to practice Dockerization, continuous integration (CI), continuous delivery (CD), and Kubernetes (K8s) orchestration.
 
