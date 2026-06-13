@@ -1,0 +1,45 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: travel_booking_db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: voyage_db
+      MYSQL_USER: voyage_user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: travel_booking_backend
+    restart: unless-stopped 
+    environment:
+      DB_HOST: db
+      DB_USER: voyage_user
+      DB_PASSWORD: password
+      DB_NAME: voyage_db
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/app
+    
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: travel_booking_frontend
+    restart: unless-stopped 
+    ports:
+      - "80:80"
+    
+
+volumes:
+  db_data:
+
