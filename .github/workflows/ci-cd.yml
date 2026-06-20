@@ -16,10 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        service:
-          - frontend
-          - backend
-
+        service: [frontend, backend]
     permissions:
       contents: write
 

@@ -26,7 +26,7 @@ spec:
           # - Each init container must complete successfully before the next one starts.
       containers:
       - name: voyage-backend
-        image: voyage-backend:v1
+        image: bhargavpateldevops/voyage-backend:v1
         resources:
           requests:
             cpu: 300m
